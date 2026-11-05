@@ -7,14 +7,14 @@ import net.minecraft.util.Identifier;
 
 public class ModItems {
 
-    // Регистрируем инструмент (обычный Item с максимальным размером стопки 1)
+    // Регистрируем бур с прочностью 1000 и огнестойкостью
     public static final Item DRILL = Registry.register(
             Registries.ITEM,
-            Identifier.of("mod-drill", "drill"),
-            new Item(new Item.Settings().maxCount(1))
+            Identifier.of(ModDrill.MOD_ID, "drill"),
+            new Item(new Item.Settings().maxCount(1).maxDamage(1000).fireproof())
     );
 
     public static void initialize() {
-        // Пустой метод, чтобы вызывать его из главного класса (как требует методичка)
+        // Метод пустой, так как регистрация происходит выше
     }
 }
