@@ -1,30 +1,23 @@
 package ru.college.i923v;
 
 import net.fabricmc.api.ModInitializer;
-
-import net.minecraft.util.Identifier;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class ModDrill implements ModInitializer {
-	public static final String MOD_ID = "mod-drill";
 
-	// This logger is used to write text to the console and the log file.
-	// It is considered best practice to use your mod id as the logger's name.
-	// That way, it's clear which mod wrote info, warnings, and errors.
-	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+    // Идентификатор нашего мода (должен совпадать с тем, что в fabric.mod.json)
+    public static final String MOD_ID = "mod-drill";
 
-	@Override
-	public void onInitialize() {
-		// This code runs as soon as Minecraft is in a mod-load-ready state.
-		// However, some things (like resources) may still be uninitialized.
-		// Proceed with mild caution.
+    // Логгер для вывода сообщений
+    public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
+    @Override
+    public void onInitialize() {
+        // То самое сообщение из прошлой лабы
         LOGGER.info("Проект загружен успешно");
-	}
 
-	public static Identifier id(String path) {
-		return Identifier.of(MOD_ID, path);
-	}
+        // Вызываем инициализацию наших предметов (бура)
+        ModItems.initialize();
+    }
 }
