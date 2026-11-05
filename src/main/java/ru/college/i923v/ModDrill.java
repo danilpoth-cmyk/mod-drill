@@ -19,5 +19,9 @@ public class ModDrill implements ModInitializer {
 
         // Вызываем инициализацию наших предметов (бура)
         ModItems.initialize();
+        // Добавление бура в творческий инвентарь (вкладка "Инструменты")
+        net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents.modifyEntriesEvent(
+                net.minecraft.item.ItemGroups.TOOLS
+        ).register(entries -> entries.add(ModItems.DRILL));
     }
 }
